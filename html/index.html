@@ -79,7 +79,16 @@
           </div>
           <div class="col-12 col-sm align-self-center">
             <img src="/img/logo.png" class="img-fluid" alt="" />
-            <a href="#serve" class="btn, btn-block, btn-sm and btn-warning">reserve button</a>
+            <a
+              role="button"
+              href="#serve"
+              class="btn btn-block nav-link btn-sm btn-warning"
+              data-toggle="tooltip"
+              data-html="true"
+              title="or call us at <br><strong>0503421434</strong>"
+              data-placement="bottom"
+              >reserve button</a
+            >
           </div>
         </div>
       </div>
@@ -339,5 +348,10 @@
     <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready( function() {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
   </body>
 </html>
