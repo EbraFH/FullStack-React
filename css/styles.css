@@ -37,3 +37,13 @@ body{
 .navbar-dark{
   background-color: #512DAB;
 }
+
+a:visited,a:link{
+  text-decoration: none;
+  color: #0f0f0f;
+}
+
+.tab-content{
+  border: 1px solid #ddd;
+  padding: 10px;
+}
