@@ -64,3 +64,9 @@ a:visited,a:link{
 #sereveb{
   margin-top: 2rem;
 }
+#carouselButton {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+}
