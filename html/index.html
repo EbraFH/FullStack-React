@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="/css/styles-old.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="stylesheet"
       href="/node_modules/font-awesome/css/font-awesome.min.css"
@@ -64,7 +64,7 @@
             </li>
           </ul>
           <span class="navbar-text">
-            <a data-toggle="modal" data-target="#loginModal">
+            <a id="loginButton">
               <span class="fa fa-sign-in"></span> Login
             </a>
           </span>
@@ -274,13 +274,9 @@
 
           <div class="col-12 col-sm align-self-center">
             <img src="/img/logo.png" class="img-fluid" alt="" />
-            <a id="sereveb"
+            <a id="reserveButton"
               role="button"
-              data-target="#reserveModal"
               class="btn col-6 btn-sm btn-warning"
-              data-toggle="modal"
-              data-html="true"
-              data-placement="bottom"
               >reserve table</a
             >
           </div>
@@ -531,7 +527,14 @@
               $("#carouselButton").children('span').removeClass('fa-play')
               $("#carouselButton").children('span').addClass('fa-pause')
             }
+          });
 
+          $("#loginButton").click(function(){
+            $("#loginModal").modal('show');
+          });
+      
+          $("#reserveButton").click(function(){
+            $("#reserveModal").modal('show');
           });
       });
   </script>
