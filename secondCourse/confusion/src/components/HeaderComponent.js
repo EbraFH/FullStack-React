@@ -10,15 +10,13 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
-
 class Header extends Component {
   constructor(props) {
     super(props);
-
-    this.toggleNav = this.toggleNav.bind(this);
     this.state = {
       isNavOpen: false,
     };
+    this.toggleNav = this.toggleNav.bind(this);
   }
 
   toggleNav() {
@@ -29,7 +27,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Navbar dark expand="md">
           <div className="container">
             <NavbarToggler onClick={this.toggleNav} />
@@ -60,19 +58,19 @@ class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/contactus">
-                    <span className="fa fa-address-card fa-lg"></span> Contact
-                    Us
+                    <span className="fa fa-info fa-lg"></span> Contact Us
                   </NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
           </div>
         </Navbar>
+
         <div className="Jumbotron">
           <div className="container">
             <div className="row row-header">
               <div className="col-12 col-sm-6">
-                <h1>Ristorante con Fusion</h1>
+                <h1>Ristorante Con Fusion</h1>
                 <p>
                   We take inspiration from the World's best cuisines, and create
                   a unique fusion experience. Our lipsmacking creations will
@@ -82,7 +80,7 @@ class Header extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
