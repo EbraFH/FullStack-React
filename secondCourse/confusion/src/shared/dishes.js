@@ -1,4 +1,4 @@
-export const DISHES = [
+const DISHES = [
   {
     id: 0,
     name: "Uthappizza",
@@ -44,3 +44,5 @@ export const DISHES = [
       "A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms",
   },
 ];
+
+export default DISHES;
