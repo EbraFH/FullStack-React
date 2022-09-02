@@ -3,9 +3,9 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Button,
-  Label,
   Row,
   Col,
+  Label,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Control, Form, Errors } from "react-redux-form";
@@ -22,6 +22,11 @@ class Contact extends Component {
     this.props.postFeedback(values);
     this.props.resetFeedbackForm();
   };
+  // handleSubmit(values) {
+  //   console.log("Current State is: " + JSON.stringify(values));
+  //   alert("Current State is: " + JSON.stringify(values));
+  //   // event.preventDefault();
+  // }
 
   render() {
     return (

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Menu from "./MenuComponent";
 import Dishdetail from "./DishdetailComponent";
-import Header from "./HeadComponent";
+import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import About from "./AboutComponent";
