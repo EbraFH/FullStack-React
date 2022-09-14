@@ -4,20 +4,26 @@ var favicon = require("serve-favicon");
 var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
+var session = require("express-session");
+var FileStore = require("session-file-store")(session);
 
 var index = require("./routes/index");
 var users = require("./routes/users");
 var dishRouter = require("./routes/dishRouter");
 var promoRouter = require("./routes/promoRouter");
 var leaderRouter = require("./routes/leaderRouter");
+var config = require("./config");
 
 const mongoose = require("mongoose");
 mongoose.Promise = require("bluebird");
 
 const Dishes = require("./models/dishes");
 
+var passport = require("passport");
+var authenticate = require("./authenticate");
+
 // Connection URL
-const url = "mongodb://localhost:27017/conFusion";
+const url = config.mongoUrl;
 const connect = mongoose.connect(url, {
   useMongoClient: true,
   /* other options */
@@ -43,11 +49,40 @@ app.set("view engine", "jade");
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+//app.use(cookieParser('12345-67890-09876-54321'));
+
+// app.use(session({
+//   name: 'session-id',
+//   secret: '12345-67890-09876-54321',
+//   saveUninitialized: false,
+//   resave: false,
+//   store: new FileStore()
+// }));
+
+app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use("/", index);
 app.use("/users", users);
+
+// function auth (req, res, next) {
+//   console.log(req.user);
+
+//   if (!req.user) {
+//     var err = new Error('You are not authenticated!');
+//     res.setHeader('WWW-Authenticate', 'Basic');
+//     err.status = 401;
+//     next(err);
+//   }
+//   else {
+//         next();
+//   }
+// }
+
+// app.use(auth);
+
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/dishes", dishRouter);
 app.use("/promotions", promoRouter);
 app.use("/leaders", leaderRouter);
